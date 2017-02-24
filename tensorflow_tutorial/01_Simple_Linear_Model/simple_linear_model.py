@@ -139,8 +139,8 @@ cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits=logits, labels=y_
 # so we simply take the average of the cross-entropy for all the image classifications.
 cost = tf.reduce_mean(cross_entropy)
 
-# Now that we have a cost measure that must be minimized, we can then create an optimizer. In this case it is the basic form of Gradient Descent
-# where the step-size is set to 0.5.
+# Now that we have a cost measure that must be minimized, we can then create an optimizer. In this case it is the basic form of
+# Gradient Descent where the step-size is set to 0.5.
 # Note that optimization is not performed at this point. In fact, nothing is calculated at all, we just add the optimizer-object to the
 # TensorFlow graph for later execution.
 optimizer = tf.train.GradientDescentOptimizer(learning_rate=0.5).minimize(cost)
