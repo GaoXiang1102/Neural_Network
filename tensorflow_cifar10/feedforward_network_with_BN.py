@@ -56,7 +56,7 @@ with tf.name_scope('output-layer'):
 
 with tf.name_scope('error'):
     error = tf.reduce_mean(
-        tf.nn.softmax_cross_entropy_with_logits(outputs, targets))
+        tf.nn.softmax_cross_entropy_with_logits(logits=outputs, labels=targets))
 with tf.name_scope('accuracy'):
     accuracy = tf.reduce_mean(tf.cast(
         tf.equal(tf.argmax(outputs, 1), tf.argmax(targets, 1)),

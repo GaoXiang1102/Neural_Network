@@ -38,7 +38,7 @@ beta = 1e-3
 
 with tf.name_scope('error'):
     error = (tf.reduce_mean(
-        tf.nn.softmax_cross_entropy_with_logits(outputs, targets)) +
+        tf.nn.softmax_cross_entropy_with_logits(logits=outputs, labels=targets)) +
              beta * tf.nn.l2_loss(weights1) +
              beta * tf.nn.l2_loss(weights2) +
              beta * tf.nn.l2_loss(weights3))
