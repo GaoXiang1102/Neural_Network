@@ -710,7 +710,7 @@ plot_distorted_image(img, cls)
 # Perform optimization
 # Because we are saving the checkpoints during optimization, and because we are restoring the latest checkpoint
 # when restarting the code, we can stop and continue the optimization later.
-# optimize(num_iterations=50000)
+optimize(num_iterations=1000)
 
 
 
@@ -761,14 +761,14 @@ np.set_printoptions(precision=3, suppress=True)
 # Print the predicted label.
 print(label_pred[0])
 
-# load the test data and calculate the test accuracy
-test_inputs = np.load(os.path.join('../data', 'cifar-10-test-inputs.npz'))['inputs']
-test_inputs = test_inputs.reshape((-1, num_channels, img_size, img_size)).transpose(0,2,3,1).astype(np.float32)
-test_targets = np.load(os.path.join(os.environ['MLP_DATA_DIR'], 'cifar-10-test-targets.npz'))['targets']
-test_predictions = session.run(y_pred, feed_dict={x:test_inputs})
-
-test_pred_cls = np.argmax(test_predictions, axis=1)
-print np.mean(test_pred_cls==test_targets)
+# # load the test data and calculate the test accuracy
+# test_inputs = np.load(os.path.join('../data', 'cifar-10-test-inputs.npz'))['inputs']
+# test_inputs = test_inputs.reshape((-1, num_channels, img_size, img_size)).transpose(0,2,3,1).astype(np.float32)
+# test_targets = np.load(os.path.join(os.environ['MLP_DATA_DIR'], 'cifar-10-test-targets.npz'))['targets']
+# test_predictions = session.run(y_pred, feed_dict={x:test_inputs})
+#
+# test_pred_cls = np.argmax(test_predictions, axis=1)
+# print np.mean(test_pred_cls==test_targets)
 
 
 
